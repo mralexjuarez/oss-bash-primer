@@ -29,23 +29,22 @@
 						<li>Bash Foundations</li>
 						<li>Bash Scripting</li>
 						<li>Resources</li>
-						<li>Review</li>
 						<li>Box Breathing (Again)</li>
 					</ul>
 				</section>
 
 				<section>
-					<h3>About this Tutorial</h3>
-					<p>
-						This tutorial is around 90 minutes of curated contet from multiple sources.
-						We will not cover everything there is to cover and my goal is provide enough practical
-						knowledge to be able to continue learning after this course.
-					</p>
+					<h3>Requirements:</h3>
+					<p>This tutorial tries to assume as little knowledge as possible, but a working knoweldge of a Linux system is helpful.</p>
 				</section>
 
 				<section>
-					<h3>Requirements:</h3>
-					<p>This tutorial tries to assume as little knowledge as possible, but a working knoweldge of a Linux system is helpful.</p>
+					<h3>About this Tutorial</h3>
+					<p>
+						This tutorial is around 75-80 minutes of curated contet from multiple sources.
+						We will not cover everything there is to cover and my goal is provide enough practical
+						knowledge to be able to continue learning after this course.
+					</p>
 				</section>
 
 				<section>
@@ -256,11 +255,38 @@
 				</section>
 
 				<section>
+					<h2>Functions</h2>
+					<p>A function is a set of commands that can be grouped and called by simply typing the function name.</p>
+				<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1,4|2|3">function FUNCTION {
+ COMMAND1
+ COMMAND2
+}</code></pre>
+				</section>
+
+				<section>
 					<h3>Control Statements</h3>
 					<ul>
 						<li>If / For / While</li>
 						<li>Switch Statements</li>
 					</ul>
+				</section>
+
+				<section>
+					<h3>For Loops</h3>
+					<p>A for loop is for executing code repeatedly.</p>
+<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4|5|6">
+for VAR in SEQUENCE
+do
+	COMMAND1
+	COMMAND2
+	COMMAND3
+done
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Box Breathing Script v1</h3>
+					<p>Let's take a look at a first version of a script to help us with box breathing.</p>
 				</section>
 
 				<section>
@@ -302,19 +328,6 @@ fi
 				</section>
 
 				<section>
-					<h3>For Loops</h3>
-					<p>A for loop is for executing code repeatedly.</p>
-<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4|5|6">
-for VAR in SEQUENCE
-do
-	COMMAND1
-	COMMAND2
-	COMMAND3
-done
-</code></pre>
-				</section>
-
-				<section>
 					<h3>While Loops</h3>
 					<p>A while loop allows for code to be executed while a test condition returns true.</p>
 <pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4|5|6|7">
@@ -329,7 +342,25 @@ done
 				</section>
 
 				<section>
-					<h3>Switch Statement</h3>
+					<h3>Box Breathing Script v2</h3>
+					<p>Let's take a look at a first version of a script to help us with box breathing.</p>
+				</section>
+
+				<section>
+					<h3>Case Statement</h3>
+					<p>A case (or switch) statement allows for different actions to be taken depending on the input.</p>
+<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2-5|6-9|10">
+case $VAR in
+WORD)
+  COMMAND1
+  COMMAND2
+;;
+*)
+  COMMAND1
+  COMMAND2
+;;
+esac
+</code></pre>
 				</section>
 
 				<section>
@@ -354,17 +385,8 @@ done
 				</section>
 
 				<section>
-					<h2>Functions</h2>
-					<p>A function is a set of commands that can be grouped and called by simply typing the function name.</p>
-				<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1,4|2|3">function FUNCTION {
- COMMAND1
- COMMAND2
-}</code></pre>
-				</section>
-
-				<section>
-					<h3>Bringing it all together</h3>
-					<p>So now it's time to bring it all together</p>
+					<h3>Box Breathing Script v3</h3>
+					<p>So now it's time to bring it all together and look at a final version of this script.</p>
 				</section>
 
 				<section>
