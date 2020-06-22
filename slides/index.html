@@ -1,0 +1,414 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Bashful to Bold a Primer on Bash - OSS 2020</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class=	"slides">
+				<section>
+					<h3>Bashful to Bold</h3>
+					<h3>A Bash Primer</h3>
+					<p>Alex Juarez, Rackspace</p>
+				</section>
+
+				<section>
+					<h3>Agenda</h3>
+					<ul>
+						<li>Box Breathing Technique</li>
+						<li>Bash Foundations</li>
+						<li>Bash Scripting</li>
+						<li>Resources</li>
+						<li>Review</li>
+						<li>Box Breathing (Again)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>About this Tutorial</h3>
+					<p>
+						This tutorial is around 90 minutes of curated contet from multiple sources.
+						We will not cover everything there is to cover and my goal is provide enough practical
+						knowledge to be able to continue learning after this course.
+					</p>
+				</section>
+
+				<section>
+					<h3>Requirements:</h3>
+					<p>This tutorial tries to assume as little knowledge as possible, but a working knoweldge of a Linux system is helpful.</p>
+				</section>
+
+				<section>
+					<h3>Box Breathing</h3>
+				</section>
+
+				<section>
+					<h3>Benefits</h3>
+					<p>
+						In regards to the benefits of deep-breathing:
+						<blockquote>This may help ease symptoms of stress-related disorders and mental health conditions such as anxiety, general stress, depression and post-traumatic stress disorder.</blockquote>
+						<small><a href="https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/decrease-stress-by-using-your-breath/art-20267197?pg=2">https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/decrease-stress-by-using-your-breath/art-20267197?pg=2</a></small>
+					</p>
+
+				</section>
+
+				<section>
+					<h3>Steps for Box Breathing</h3>
+					<p>Start out seated comfortably with you feet on the floor</p>
+					<ul>
+						<li>Inhale for 4 seconds</li>
+						<li>Hold for 4 seconds</li>
+						<li>Exhale for 4 seconds</li>
+						<li>Hold for 4 seconds</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Bash Foundations</h2>
+				</section>
+
+				<section>
+					<h3>What is bash?</h3>
+					<p>Bash is a shell for commmand interpretation.</p>
+					<ul>
+						<li>First released on June 8th 1989</li>
+						<li>Bourne-again Shell, replaced Bourne Shell (sh)</li>
+						<li>Default login shell on a lot of systems.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>What happens when you login?</h3>
+					<p>Let's go over what happens when you log on to a system. Much of this is covered under INVOCATION in the bash man page.</p>
+				</section>
+
+				<section>
+					<h3>INVOCATION</h3>
+					<code>
+					<ul>
+						<li>/etc/profile</li>
+						<li>~/.bash_profile</li>
+						<li>~/.bash_login</li>
+						<li>~/.profile</li>
+					</ul>
+				</code>
+				</section>
+
+				<section>
+					<h3>Enviornment Variables</h3>
+					<p>The <code>printenv</code> command displays enviornment variables.</p>
+				</section>
+
+				<section>
+					<h3>Example: <code>printenv</code></h3>
+				</section>
+
+				<section>
+					<h3>Setting &amp; Exporting Variables</h3>
+					<p>Variables set on the command line are only avaliable in that session.</p>
+					<p>The <code>export</code> command makes the variable available to scripts run from the session.</p>
+				</section>
+
+				<section>
+					<h3>Example: <code>export</code></h3>
+				</section>
+
+				<section>
+					<h3>Bash Built-Ins</h3>
+					<p>Bash has a number of commands built in to it.</p>
+					<p>The <code>type</code> command can let us know if a command is built in or not.</p>
+				</section>
+
+				<section>
+					<h3>Example: <code>type</code></h3>
+				</section>
+
+				<section>
+					<h3>Check Point Slide</h3>
+					<p>So far  we've covered the following</p>
+					<ul>
+						<li>Box Breathing</li>
+						<li>What happens when you login</li>
+						<li>Setting and Exporting Variables in Bash</li>
+						<li>Bash Builtins</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>I/O Redirection</h3>
+					<p>A fundamental concepts is that of STDIN(0), STDOUT(1), STDERR(2). These are common ideas to most if not all commands</p>
+					<p>We can begin to harness the scripting power of the "one-liner" when we understand connecting STDOUT of one command to STDIN of another</p>
+				</section>
+
+				<section>
+					<h3>Redirecting Output to a File</h3>
+					<p>The output of a command will be displayed to STDOUT (this is usually your terminal).</p>
+					<p>We can redirect this output using either a single (&gt) or double(&gt&gt) angle brackets</p>
+				</section>
+
+				<section>
+					<h3>Pipes</h3>
+					<p>So knowing about STDIN and STDOUT Pipes are how we connect the output of one command in to the input of another command.</p>
+					<p>Example:<code> # last | tac</code></p>
+				</section>
+
+				<section>
+					<h3>Check Point Slide</h3>
+					<ul>
+						<li>I/O Redirection</li>
+						<li>Redirection to a file</li>
+						<li>Pipes</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Bash Scripting</h2>
+				</section>
+
+				<section>
+					<h3>Our First Bash Script</h3>
+					<ul>
+						<li>Sha-bang!</li>
+						<li>Executable Scripts</li>
+						<li>Bash Special Variables</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Sha-bang!</h3>
+					<p>Taken from putting together Shap(#) and bang(!), this line defines the interpreture the script will be run through.</p>
+					<p>
+						<code>#!/bin/bash</code>
+					</p>
+				</section>
+
+				<section>
+					<h3>Executable Scritps</h3>
+					<p>To make these easier, we should learn how to make a script executable and place it somewhere in our path.</p>
+				</section>
+
+				<section>
+					<h3>Bash Internal Variables</h3>
+					<p>There are a couple of speical variables that could be helpful when scripting</p>
+					<table>
+						<tr>
+							<td>$?</td><td>Exit status of a commmand, function, or the script itself.</td>
+						</tr>
+						<tr>
+							<td>$$</td><td>The process ID (PID) of the script</td>
+						</tr>
+						<tr>
+							<td>$0,$1,$2,etc</td><td>The paramaters passed to the command</td>
+						</tr>
+					</table>
+
+				</section>
+
+				<section>
+					<h3>Check Point Slide</h3>
+					<ul>
+						<li>Command Interpreter</li>
+						<li>Making a Script Executable</li>
+						<li>Bash Internal Variables</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Arithmetic Operators</h3>
+					<ul>
+						<li>Addition / Subtraction etc.</li>
+						<li>Increment and Decrement</li>
+				</section>
+
+				<section>
+					<h3>Addition / Subtraction etc.</h3>
+					<p>Bash has various arithmatic operators.</p>
+					<table>
+						<tr>
+							<td>+</td><td>plus</td>
+							<td>-</td><td>minus</td>
+						</tr>
+						<tr>
+							<td>*</td><td>multiplication</td>
+							<td>/</td><td>division</td>
+						</tr>
+					</table>
+					<small><a href="https://tldp.org/LDP/abs/html/ops.html" target="_blank">https://tldp.org/LDP/abs/html/ops.html</a></small>
+				</section>
+
+				<section>
+					<h3>Increment / Decrement</h3>
+					<p>There are a few ways to work with incrementing and decrementing our numbers</p>
+					<ul>
+						<li>((i++))</li>
+						<li>let "i++"</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Control Statements</h3>
+					<ul>
+						<li>If / For / While</li>
+						<li>Switch Statements</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>If Loops</h3>
+					<p>Use an if statement if a decision needs to be made</p>
+<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4">
+if [ SOME_TEST ]
+then
+	COMMANDS
+fi
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Example If Loop</h3>
+<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4">
+if [ -z $1 ]
+then
+ echo "Usage Statement $0 requires argument."
+fi
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Test Operators</h3>
+					<p>In between the square brackets there are various tests we can perform.</p>
+					<table>
+						<tr>
+							<td>-z STRING</td><td>True if the length of the STRING is zero</td>
+						</tr>
+						<tr>
+							<td>-a STRING</td><td>True if the length of the STRING is zero</td>
+						</tr>
+						<tr>
+							<td>-eq, -ne, -lt, -gt</td><td>Equal, Not Equal, Less Thant, Greater Than</td>
+						</tr>
+					</table>
+					<small><a href="https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html" target="_blank">https://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html</a></small>
+				</section>
+
+				<section>
+					<h3>For Loops</h3>
+					<p>A for loop is for executing code repeatedly.</p>
+<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4|5|6">
+for VAR in SEQUENCE
+do
+	COMMAND1
+	COMMAND2
+	COMMAND3
+done
+</code></pre>
+				</section>
+
+				<section>
+					<h3>While Loops</h3>
+					<p>A while loop allows for code to be executed while a test condition returns true.</p>
+<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1|2|3|4|5|6|7">
+i=0
+while [ $i -lt 4 ]
+do
+	COMMAND1
+	COMMAND2
+	COMMAND3
+done
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Switch Statement</h3>
+				</section>
+
+				<section>
+					<h2>Debugging</h2>
+					<p>As things get more complicated knowing how to debug will help you help you pinpoint issues with your script.</p>
+				</section>
+
+				<section>
+					<h3>Bash offers a couple of debbuging options</h3>
+					<code>
+						$ bash -x script-name.sh
+					</code>
+					<br/>
+					<table>
+						<tr>
+							<td><code>set -x</code></td><td>Print command traces before execution</td>
+						</tr>
+						<tr>
+							<td><code>set -v</code></td><td>Print shell input lines as they are read</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Functions</h2>
+					<p>A function is a set of commands that can be grouped and called by simply typing the function name.</p>
+				<pre><code class="plaintext" data-trim data-noescape data-line-numbers="1,4|2|3">function FUNCTION {
+ COMMAND1
+ COMMAND2
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Bringing it all together</h3>
+					<p>So now it's time to bring it all together</p>
+				</section>
+
+				<section>
+					<h3>Resources</h3>
+					<ul>
+						<li><a href="" target="_blank">Git Repo</a></li>
+						<li><a href="https://www.tutorialspoint.com/execute_bash_online.php" target="_blank">Bash Online</a></li>
+						<li><a href="https://www.tldp.org/LDP/Bash-Beginners-Guide/html/index.html" target="_blank">Bash Guide for Beginners</a></li>
+						<li><a href="https://www.tldp.org/LDP/abs/html/index.html" target="_blank">Advanced Bash-Scripting Guide</a></li>
+				</section>
+
+				<section>
+					<h3>Box Breathing(Again!)</h3>
+				</section>
+
+				<section>
+				<h3>Talk to me!</h3>
+				<p>Alex Juarez<br/>Principal Engineer</p>
+				<p>email:
+					<br/>alex.juarez@rackspace.com</p>
+				<p>twitter:
+					<br/>@mralexjuarez</p>
+				</section>
+
+				<section>
+					<h3>Thank You!</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
